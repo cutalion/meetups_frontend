@@ -1,0 +1,29 @@
+.App {
+}
+
+.App-logo {
+  height: 80px;
+}
+
+.App-header {
+  background-color: #1f527a;
+  height: 150px;
+  padding: 5vh;
+  color: white;
+  text-align: center;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.Meetups {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
