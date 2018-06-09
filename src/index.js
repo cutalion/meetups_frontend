@@ -1,22 +1,14 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import registerServiceWorker from './registerServiceWorker';
-import { ApolloProvider } from "react-apollo";
-import ApolloClient from "apollo-boost";
-import App from './components/App';
-import './index.css';
+import express from 'express';
+import renderer from './helpers/renderer';
 
-const client = new ApolloClient({
-  uri: "http://localhost:2300/api/v1/graphql"
+const app = express();
+
+app.use(express.static('public'));
+
+app.get('/', (req, res) => {
+  res.send(renderer());
 });
 
-const Root = () => {
-  return (
-    <ApolloProvider client={client}>
-      <App />
-    </ApolloProvider>
-  );
-};
-
-ReactDOM.render(<Root />, document.getElementById('root'));
-registerServiceWorker();
+app.listen(4000, () => {
+  console.log('Listening on port 4000');
+})
